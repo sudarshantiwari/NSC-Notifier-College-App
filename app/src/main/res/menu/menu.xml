@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:title="Results"
+            android:icon="@drawable/results"
+            android:id="@+id/results"
+            />
+        <item
+            android:title="Events"
+            android:icon="@drawable/events"
+            android:id="@+id/events"/>
+        <item
+            android:title="Facebook"
+            android:icon="@drawable/facebook"
+            android:id="@+id/facebook"/>
+        <item
+            android:title="Our Website"
+            android:icon="@drawable/website"
+            android:id="@+id/website"/>
+        <item
+            android:title="Direction"
+            android:icon="@drawable/map"
+            android:id="@+id/map"/>
+        <item
+            android:title="Notice"
+            android:icon="@drawable/notice"
+            android:id="@+id/notice"/>
+    </group>
+
+    <item android:title=""
+        >
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:title="Logout"
+                    android:icon="@drawable/logout"
+                    android:id="@+id/logout"
+                    />
+            </group>
+        </menu>
+    </item>
+
+</menu>

@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "491510055236",
+    "project_id": "nsc-notifier-b9f9a",
+    "storage_bucket": "nsc-notifier-b9f9a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:491510055236:android:73b6fdb53bf537ab459711",
+        "android_client_info": {
+          "package_name": "com.ursaccharine.nscnotifier"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "491510055236-7sci9vavvurv3ghhabqdjpuuuatusr1u.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ursaccharine.nscnotifier",
+            "certificate_hash": "f5843bf2dd2ab49240fc2458c01eefca4861225a"
+          }
+        },
+        {
+          "client_id": "491510055236-u3mjqgk97upphagoumtub5u29gc9sqcn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBgcXcqIdbcCKLOLMa6jiA5jzx564HW37M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "491510055236-u3mjqgk97upphagoumtub5u29gc9sqcn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
