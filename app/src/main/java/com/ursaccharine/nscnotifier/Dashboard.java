@@ -26,7 +26,7 @@ public class Dashboard extends AppCompatActivity {
         drawerLayout = findViewById(R.id.drawer);
         toolbar = findViewById(R.id.toolBar);
         setSupportActionBar(toolbar);
-        toggle = new ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.open,R.string.close);
+        toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.open, R.string.close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
         navigationView = findViewById(R.id.nav_view);
@@ -35,7 +35,7 @@ public class Dashboard extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
                 int id = item.getItemId();
-                switch (id){
+                switch (id) {
                     case R.id.results:
                         break;
                     case R.id.events:
@@ -53,7 +53,7 @@ public class Dashboard extends AppCompatActivity {
                     default:
                         return true;
                 }
-                    return true;
+                return true;
             }
         });
 

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
 import android.view.SurfaceHolder.Callback;
+
 import androidx.arch.core.executor.TaskExecutor;
 
 import android.content.Intent;
@@ -33,8 +34,8 @@ public class VerifyPhoneNo extends AppCompatActivity {
     String verificationCodeBySystem;
     Button verify_btn;
     EditText codeEnteredByTheUser;
-   // LottieAnimationView lottieAnimationView;
-   // LottieAnimationView lottieAnimationView2;
+    // LottieAnimationView lottieAnimationView;
+    // LottieAnimationView lottieAnimationView2;
     FirebaseAuth mAuth;
 
     @Override
@@ -42,7 +43,10 @@ public class VerifyPhoneNo extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_verify_phone_no);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
+        /**
+         * should initialize mAuth
+         * */
+        mAuth = FirebaseAuth.getInstance();
 
         //lottieAnimationView = findViewById(R.id.loading_lottie);
         //lottieAnimationView2 = findViewById(R.id.sms_lottie);
@@ -52,17 +56,19 @@ public class VerifyPhoneNo extends AppCompatActivity {
         String phoneNo = getIntent().getStringExtra("phoneNo");
         sendVerificationCodeToUser(phoneNo);
     }
+
     private void sendVerificationCodeToUser(String phoneNo) {
 
         PhoneAuthOptions options =
                 PhoneAuthOptions.newBuilder(mAuth)
                         .setPhoneNumber("+977" + phoneNo)       // Phone number to verify
                         .setTimeout(60L, TimeUnit.SECONDS) // Timeout and unit
-                        .setActivity((Activity) TaskExecutors.MAIN_THREAD)                 // Activity (for callback binding)
+                        .setActivity(this)                 // Activity (for callback binding)
                         .setCallbacks(mCallbacks)    // OnVerificationStateChangedCallbacks
                         .build();
         PhoneAuthProvider.verifyPhoneNumber(options);
     }
+
     private PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
         @Override
         public void onCodeSent(@NonNull String s, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
@@ -73,19 +79,20 @@ public class VerifyPhoneNo extends AppCompatActivity {
         @Override
         public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
             String code = phoneAuthCredential.getSmsCode();
-            if (code!=null){
-               // lottieAnimationView2.setVisibility(View.VISIBLE);
+            if (code != null) {
+                // lottieAnimationView2.setVisibility(View.VISIBLE);
                 verifyCode(code);
             }
         }
 
         @Override
         public void onVerificationFailed(@NonNull FirebaseException e) {
-            Toast.makeText(VerifyPhoneNo.this,e.getMessage(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(VerifyPhoneNo.this, e.getMessage(), Toast.LENGTH_SHORT).show();
         }
     };
-    private void verifyCode(String codeByUser){
-        PhoneAuthCredential credential = PhoneAuthProvider.getCredential(verificationCodeBySystem,codeByUser);
+
+    private void verifyCode(String codeByUser) {
+        PhoneAuthCredential credential = PhoneAuthProvider.getCredential(verificationCodeBySystem, codeByUser);
         signInTheUserByCredentials(credential);
     }
 
@@ -95,12 +102,12 @@ public class VerifyPhoneNo extends AppCompatActivity {
                 .addOnCompleteListener(VerifyPhoneNo.this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()){
-                            Intent intent = new Intent(getApplicationContext(),Login.class);
+                        if (task.isSuccessful()) {
+                            Intent intent = new Intent(getApplicationContext(), Login.class);
                             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                             startActivity(intent);
-                        }else{
-                            Toast.makeText(VerifyPhoneNo.this,task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(VerifyPhoneNo.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     }
                 });

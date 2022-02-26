@@ -43,6 +43,7 @@ dependencies {
     implementation "com.airbnb.android:lottie:4.2.2"
     implementation platform('com.google.firebase:firebase-bom:29.0.2')
     implementation 'com.google.firebase:firebase-analytics'
+    implementation 'androidx.browser:browser:1.4.0'
     //Blur Library
    // implementation 'com.eightbitlab:blurview:1.6.6'
     implementation 'de.hdodenhof:circleimageview:3.1.0'

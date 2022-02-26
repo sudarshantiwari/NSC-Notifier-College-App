@@ -82,6 +82,10 @@ public class SignUp extends AppCompatActivity {
 
     }
 
+    /**
+     * check special char in pwd
+     **/
+
     private Boolean validatePassword() {
         String val = regPassword.getEditText().getText().toString();
 
