@@ -31,7 +31,6 @@ public class Login extends AppCompatActivity {
     ImageView image;
     TextView logoText, sloganText;
     TextInputLayout username, password;
-
     FirebaseDatabase rootNode;
     DatabaseReference reference;
 
@@ -171,7 +170,6 @@ public class Login extends AppCompatActivity {
                 }
             }
         });
-
 
     }
 }

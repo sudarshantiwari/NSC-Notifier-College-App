@@ -10,11 +10,18 @@
     android:background="@color/background_color"
     tools:context=".Dashboard">
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/collegelogo"/>
+
+
+
+
     <include
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    layout="@layout/app_bar_main"
-    />
+    layout="@layout/app_bar_main"/>
 
     <com.google.android.material.navigation.NavigationView
         android:layout_width="wrap_content"
@@ -25,8 +32,8 @@
         app:headerLayout="@layout/nav_header"
         app:menu="@menu/menu"
         app:itemIconTint="#fff"
+        app:itemBackground="@drawable/menu_item_padding"
         app:itemHorizontalPadding="30dp"
         app:itemTextAppearance="@style/TextViewStyle"/>
 
-
-</androidx.drawerlayout.widget.DrawerLayout>
+    </androidx.drawerlayout.widget.DrawerLayout>
