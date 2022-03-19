@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -9,6 +8,14 @@
     android:orientation="vertical"
     android:background="#fff"
     android:padding="15dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".SignUp"
+        android:orientation="vertical"
+        android:background="#fff"
+        android:padding="10dp">
 
     <ImageView
         android:id="@+id/logo_image"
@@ -86,7 +93,23 @@
             android:fontFamily="sans-serif"
             android:text="Forgot Password?"
             android:layout_margin="5dp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+        <Button
 
+            android:layout_width="135dp"
+            android:id="@+id/admin_login"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:background="#00000000"
+            android:elevation="0dp"
+            android:textColor="@color/black"
+            android:fontFamily="sans-serif"
+            android:text="ADMIN HERE!"
+            android:layout_margin="5dp"/>
+        </LinearLayout>
         <Button
             android:id="@+id/login_btn"
             android:layout_width="match_parent"
@@ -112,4 +135,6 @@
             android:transitionName="login_signup_tran" />
 
     </LinearLayout>
-</LinearLayout>
+    </LinearLayout>
+</ScrollView>
+

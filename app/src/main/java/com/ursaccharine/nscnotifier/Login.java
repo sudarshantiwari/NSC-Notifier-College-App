@@ -33,6 +33,7 @@ public class Login extends AppCompatActivity {
     TextInputLayout username, password;
     FirebaseDatabase rootNode;
     DatabaseReference reference;
+    Button admin_login;
 
 
     private Boolean validateUsername() {
@@ -136,6 +137,7 @@ public class Login extends AppCompatActivity {
         password = findViewById(R.id.password);
         login_btn = findViewById(R.id.login_btn);
         callSignUp = findViewById(R.id.signup_screen);
+        admin_login = findViewById(R.id.admin_login);
 
         login_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -152,6 +154,13 @@ public class Login extends AppCompatActivity {
             }
         });
 
+     /*   admin_login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+*/
         callSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

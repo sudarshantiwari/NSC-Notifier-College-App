@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/admin_img"
+    tools:context=".AdminLogin">
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:id="@+id/unlock_lottie"
+        app:layout_constraintBottom_toTopOf="@+id/admin_id"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.186"
+        app:lottie_rawRes="@raw/unlock"
+        app:lottie_autoPlay="false"
+        android:visibility="visible"
+        app:lottie_loop="false">
+    </com.airbnb.lottie.LottieAnimationView>
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:id="@+id/error_lottie"
+        app:layout_constraintBottom_toTopOf="@+id/admin_id"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.186"
+        app:lottie_rawRes="@raw/error"
+        app:lottie_autoPlay="false"
+        android:visibility="invisible"
+        app:lottie_loop="false">
+    </com.airbnb.lottie.LottieAnimationView>
+
+    <EditText
+        android:id="@+id/admin_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:background="#30ff"
+        android:hint="admin_id"
+        android:padding="20dp"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="42dp"> </EditText>
+
+    <EditText
+        android:id="@+id/admin_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:background="#30ff"
+        android:hint="password"
+        android:padding="20dp"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/admin_id"
+        app:layout_constraintVertical_bias="0.0"
+        tools:layout_editor_absoluteX="16dp">
+    </EditText>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/admin_click"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="Login"
+        android:textColor="@color/black"
+        android:backgroundTint="#30ff"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/admin_password"
+        app:layout_constraintVertical_bias="0.268"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

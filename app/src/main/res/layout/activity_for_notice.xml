@@ -5,12 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/bkgfor"
     tools:context=".For_Notice">
 
     <EditText
         android:id="@+id/notice_titl"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColorHint="@color/black"
         android:backgroundTint="#FFFDD0"
         android:hint="Enter title of notice"
         android:paddingLeft="10dp"
@@ -28,6 +30,7 @@
         android:layout_height="wrap_content"
         android:backgroundTint="#FFFDD0"
         android:hint="Description of notice"
+        android:textColorHint="@color/black"
         android:lines="10"
         android:maxLines="15"
         android:minLines="5"
@@ -54,6 +57,35 @@
         app:layout_constraintTop_toBottomOf="@+id/notice_desc"
         app:layout_constraintVertical_bias="0.066"
         tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/pdf_file"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="72dp"
+        android:hint="Select pdf file from storage"
+        android:textColorHint="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.099"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/notice_btn"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/upload_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="248dp"
+        android:backgroundTint="#00000000"
+        android:text="Upload "
+        android:textColor="#000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.051"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pdf_file"
+        app:layout_constraintVertical_bias="0.666" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
