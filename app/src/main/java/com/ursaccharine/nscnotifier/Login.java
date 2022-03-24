@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.Pair;
 import android.view.View;
 import android.view.WindowManager;
@@ -154,13 +155,14 @@ public class Login extends AppCompatActivity {
             }
         });
 
-     /*   admin_login.setOnClickListener(new View.OnClickListener() {
+        admin_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+            Intent intent = new Intent(Login.this,AdminLogin.class);
+            startActivity(intent);
             }
         });
-*/
+
         callSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
