@@ -1,10 +1,5 @@
 package com.ursaccharine.nscnotifier;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.Manifest;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
@@ -12,8 +7,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -23,17 +21,11 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
-import com.karumi.dexter.Dexter;
-import com.karumi.dexter.PermissionToken;
-import com.karumi.dexter.listener.PermissionDeniedResponse;
-import com.karumi.dexter.listener.PermissionGrantedResponse;
-import com.karumi.dexter.listener.PermissionRequest;
-import com.karumi.dexter.listener.single.PermissionListener;
 
 public class For_Notice extends AppCompatActivity {
 
     private EditText notice_titl,notice_desc,pdf_file;
-    private Button notice_btn,upload_btn;
+    private Button notice_btn,upload_btn,upload_btn2;
 
     StorageReference storageRef;
     DatabaseReference databaseReference;
@@ -49,9 +41,18 @@ public class For_Notice extends AppCompatActivity {
         notice_btn = findViewById(R.id.notice_btn);
         upload_btn = findViewById(R.id.upload_btn);
         pdf_file = findViewById(R.id.pdf_file);
+        upload_btn2 = findViewById(R.id.upload_btn2);
 
         storageRef = FirebaseStorage.getInstance().getReference();
         databaseReference = FirebaseDatabase.getInstance().getReference("uploadPDF");
+
+        upload_btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(For_Notice.this,CompressionPanel.class);
+                startActivity(intent);
+            }
+        });
 
         upload_btn.setEnabled(false);
         pdf_file.setOnClickListener(new View.OnClickListener() {
@@ -129,6 +130,5 @@ public class For_Notice extends AppCompatActivity {
         startActivityForResult(Intent.createChooser(intent,"PDF FILE SELECT"),12);
 
     }
-
 
 }

@@ -15,6 +15,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.NSCNotifier">
         <activity
+            android:name=".CompressionPanel"
+            android:exported="true" />
+        <activity
             android:name=".viewpdf"
             android:exported="true" />
         <activity
