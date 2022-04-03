@@ -1,18 +1,18 @@
 package com.ursaccharine.nscnotifier;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.util.Pair;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.database.DataSnapshot;
@@ -36,6 +36,14 @@ public class Login extends AppCompatActivity {
     DatabaseReference reference;
     Button admin_login;
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(Intent.ACTION_MAIN);
+        intent.addCategory(Intent.CATEGORY_HOME);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+    }
 
     private Boolean validateUsername() {
         String val = username.getEditText().getText().toString();
@@ -82,11 +90,13 @@ public class Login extends AppCompatActivity {
         checkUser.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+
                 if (snapshot.exists()) {
                     username.setError(null);
                     username.setErrorEnabled(false);
 
                     String passwordFromDB = snapshot.child(userEnteredUsername).child("password").getValue(String.class);
+
 
                     if (passwordFromDB.equals(userEnteredPassword)) {
 
@@ -104,7 +114,11 @@ public class Login extends AppCompatActivity {
                         intent.putExtra("email", emailFromDB);
                         intent.putExtra("phoneNo", phoneNoFromDB);
                         intent.putExtra("password", passwordFromDB);
-
+                      //  ProgressDialog progressDialog = new ProgressDialog(Login.this);
+                       // progressDialog.setMessage("Logging in...");
+                     //   progressDialog.show();
+                        //progressDialog.dismiss();
+                        Toast.makeText(Login.this, "Login Success", Toast.LENGTH_SHORT).show();
                         startActivity(intent);
                     } else {
                         password.setError("Wrong Password");

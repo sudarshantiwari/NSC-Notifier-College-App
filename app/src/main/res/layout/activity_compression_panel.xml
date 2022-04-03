@@ -32,7 +32,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/upload_icon"
-        app:layout_constraintVertical_bias="0.718" />
+        app:layout_constraintVertical_bias="0.653" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/com_btn"
@@ -45,7 +45,20 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4"
-        app:layout_constraintVertical_bias="0.664" />
+        app:layout_constraintVertical_bias="0.232" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/mButtonViewShowUploads"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#8080ff"
+        android:text="Show Uploads"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        app:layout_constraintVertical_bias="0.66" />
 
     <ImageView
         android:id="@+id/imageView2"

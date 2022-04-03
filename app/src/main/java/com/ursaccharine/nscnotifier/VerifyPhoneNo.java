@@ -1,28 +1,25 @@
 package com.ursaccharine.nscnotifier;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.app.Activity;
-import android.view.SurfaceHolder.Callback;
-
-import androidx.arch.core.executor.TaskExecutor;
+import static android.content.ContentValues.TAG;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.airbnb.lottie.LottieAnimationView;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.gms.tasks.TaskExecutors;
 import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthOptions;
 import com.google.firebase.auth.PhoneAuthProvider;
@@ -48,6 +45,8 @@ public class VerifyPhoneNo extends AppCompatActivity {
          * */
         mAuth = FirebaseAuth.getInstance();
 
+
+
         //lottieAnimationView = findViewById(R.id.loading_lottie);
         //lottieAnimationView2 = findViewById(R.id.sms_lottie);
         verify_btn = findViewById(R.id.verify_btn);
@@ -67,6 +66,14 @@ public class VerifyPhoneNo extends AppCompatActivity {
                         .setCallbacks(mCallbacks)    // OnVerificationStateChangedCallbacks
                         .build();
         PhoneAuthProvider.verifyPhoneNumber(options);
+        verify_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(VerifyPhoneNo.this, Login.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
+            }
+        });
     }
 
     private PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
@@ -82,6 +89,7 @@ public class VerifyPhoneNo extends AppCompatActivity {
             if (code != null) {
                 // lottieAnimationView2.setVisibility(View.VISIBLE);
                 verifyCode(code);
+               Intent intent = new Intent(VerifyPhoneNo.this,Login.class);
             }
         }
 
@@ -103,13 +111,13 @@ public class VerifyPhoneNo extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            Intent intent = new Intent(getApplicationContext(), Login.class);
-                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                            startActivity(intent);
+                            Log.d(TAG,"Register Success");
+                            FirebaseUser user = task.getResult().getUser();
                         } else {
                             Toast.makeText(VerifyPhoneNo.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
     }
+
 }

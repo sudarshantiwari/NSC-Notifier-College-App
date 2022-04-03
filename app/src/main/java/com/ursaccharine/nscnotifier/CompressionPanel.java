@@ -33,7 +33,7 @@ import java.io.IOException;
 
 public class CompressionPanel extends AppCompatActivity {
 
-   private MaterialButton  com_btn;
+   private MaterialButton  com_btn,mButtonViewShowUploads;
    private ImageView imageView2;
    private final int PICK_IMAGE_CODE = 172;
 
@@ -44,6 +44,14 @@ public class CompressionPanel extends AppCompatActivity {
 
         com_btn = findViewById(R.id.com_btn);
         imageView2 = findViewById(R.id.imageView2);
+        mButtonViewShowUploads = findViewById(R.id.mButtonViewShowUploads);
+
+        mButtonViewShowUploads.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openImagesActivity();
+            }
+        });
 
         com_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -116,5 +124,9 @@ public class CompressionPanel extends AppCompatActivity {
                 Toast.makeText(CompressionPanel.this,"Image upload failed!", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+    private void openImagesActivity(){
+        Intent intent = new Intent(this,ImageRetrieve.class);
+        startActivity(intent);
     }
 }

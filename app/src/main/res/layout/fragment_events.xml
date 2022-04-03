@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -8,14 +8,21 @@
     tools:context=".EventsFragment">
 
     <!-- TODO: Update blank fragment layout -->
+
+
     <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/back_check2"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginLeft="295dp"
-        android:layout_marginTop="600dp"
-        app:lottie_rawRes="@raw/back_button"
-        android:id="@+id/back_check2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.955"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.976"
         app:lottie_autoPlay="true"
-        app:lottie_loop="false"/>
+        app:lottie_loop="false"
+        app:lottie_rawRes="@raw/back_button" />
 
-</FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

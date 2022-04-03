@@ -1,12 +1,12 @@
 package com.ursaccharine.nscnotifier;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.database.DatabaseReference;
@@ -19,6 +19,7 @@ public class SignUp extends AppCompatActivity {
     Button regBtn, regToLoginBtn;
     FirebaseDatabase rootNode;
     DatabaseReference reference;
+    Button signup_screen;
 
     private Boolean validateName() {
         String val = regName.getEditText().getText().toString();
@@ -127,6 +128,16 @@ public class SignUp extends AppCompatActivity {
         regPassword = findViewById(R.id.password);
         regBtn = findViewById(R.id.login_btn);
         regToLoginBtn = findViewById(R.id.signup_screen);
+      //  signup_screen = findViewById(R.id.signup_screen);
+
+        regToLoginBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SignUp.this,Login.class);
+                startActivity(intent);
+            }
+        });
+
 
 
         //Save data on Firebase when button clicked:
